@@ -1,0 +1,11 @@
+/build
+/dist
+/nc_crawler
+/temp
+/새 폴더
+
+.env
+*.txt
+*.spec
+*.exe
+*.chromedriver
