@@ -9,11 +9,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from openai import OpenAI
-import os  # 환경 변수 사용을 위해 추가
 
 # OpenAI API 키 설정
 client = OpenAI(
-    api_key=""  # 여기에 API 키를 입력하세요.
+    
 )
 
 # 구텐베르크 알고리즘을 사용하기 위한 텍스트 밀도 계산 함수
@@ -143,11 +142,10 @@ def summarize_article_content(content):
 [요약하는 방법]
 1. 요약 내용은 총 3문단으로 나눠서 요약해줘
 2. 각 문단은 3~5문장으로 구성해줘
-3. 각 문장의 종결어미 형식은 '-임', '-하는 것을 권장', '-할 수 있다고 경고',  '-함', '-라고 함', '-다고 함', '-음', '-하는 중', 명사형 종결어미 (-발견, -경고, -형성)
-    등등 명사로 종결하되 다양하게 사용하기
-4. 각 문장은 줄바꿈으로 구별
-5. 줄바꿈 두 개로 각 문단을 구별
-6. 문장마다 줄 바꿈을 명확히 추가해
+3. 각 문장의 종결어미 형식: '-ㅁ', '-기' 등 명사형으로 종결하되 명사 그 자체로 종결할 수 있는 문장은 명사로 종결
+4. 명사형 혹은 명사로 종결했을 때 마침표로 마무리
+5. 각 문단은 줄바꿈 두 개로 구별, 각 문장은 줄바꿈으로 구별
+6. 각 문단마다 문맥상 적절한 이모지를 추가
 7. 내용을 담을 수 있는 해시태그를 5개  만들고 각각 3~4어절 이내의 해시태그를 만들고, 각 어절마다 띄어쓰기하기
 8. 제목 아이디어를 5개 추가적으로 만들고, 35자 이내로 작성
 9. 위의 [형식]을 정확히 따라 작성
@@ -167,8 +165,6 @@ def summarize_article_content(content):
         )
 
         summary_text = response.choices[0].message.content.strip()
-
-        print(summary_text)
 
         parsed_response = parse_assistant_response(summary_text)
         return parsed_response
@@ -211,7 +207,7 @@ def main():
 
     # 파일명에 현재 날짜와 시간을 포함하여 저장
     current_time = datetime.now().strftime("%Y%m%d_%H%M")
-    file_name = f"news_briefing_{current_time}.txt"
+    file_name = f"issue_briefing_{current_time}.txt"
 
     try:
         with open(file_name, 'w', encoding='utf-8') as f:
