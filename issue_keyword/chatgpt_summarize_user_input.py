@@ -12,7 +12,6 @@ from openai import OpenAI
 
 # OpenAI API key 설정
 client = OpenAI(
-
 )
 
 # 연합뉴스가 아닌 다른 랭킹 뉴스 사이트에서 제목과 링크를 뽑기 위한 ChatGPT API 프롬프트 생성 함수

@@ -12,7 +12,6 @@ from openai import OpenAI
 
 # OpenAI API 키 설정
 client = OpenAI(
-    
 )
 
 # 구텐베르크 알고리즘을 사용하기 위한 텍스트 밀도 계산 함수

@@ -1,46 +1,41 @@
-# 프로그램 실행 명세서
+# What is this project?
+**summarize news article using LLM api (chatgpt, claude, gemini) (in Korean)**
 
-## 1. .exe 파일이 있을 경우
-해당 프로그램 실행
+you can edit prompt as English or other language as what you want
 
-해당 input 값에 원하는 값 입력
-Default 값으로 실행하기 원한다면, 엔터 두 번
-User input
-분석할 뉴스 사이트 ( default : 연합뉴스 )
-예시 )
-* 연합뉴스 (https://www.yna.co.kr/theme/mostviewed/index)
-* 매일경제 (https://www.mk.co.kr/news/ranking/all/)
-* 네이트 뉴스(https://news.nate.com/rank/interest?sc=all&p=day&date=20241015)
-* 한경뉴스 (https://www.hankyung.com/ranking)
-* 네이버뉴스(https://news.naver.com/main/ranking/popularDay.naver)
+## issue_keyword
+**summarize only two lines with hashtags and head title**
 
+### user intput
+1. URLs for news sites with rankings to Analyze (default: 연합뉴스)
+    
+    Examples:
+    * Yonhap News: https://www.yna.co.kr/theme/mostviewed/index
+    * Maeil Business Newspaper: https://www.mk.co.kr/news/ranking/all/
+    * Nate News: https://news.nate.com/rank/interest?sc=all&p=day&date=20241015
+    * Korea Economic Daily: https://www.hankyung.com/ranking
+    * Naver News: https://news.naver.com/main/ranking/popularDay.naver
 
-분석할 뉴스 개수     ( default : 10 )
-<br>( minimum : 1개, maximum 30개 )
-<br>chatgpt_summarize_user_input.exe 파일이 있는 폴더에 news_summary_현재시간.txt 파일 생성
+2. Number of News Articles to Analyze (default: 10)
 
+* Minimum: 1
+* Maximum: 30
 
-## 2. .exe 파일이 유실 되었을 경우
-python 설치가 필요한 경우
-https://www.python.org/downloads/ 
+### Thanks to LLM, news sites' language doens't matter
 
+## issue_briefing
+**summarize 300~500 words with hastags and head title**
 
-Python 설치 후
-Win + r
-Cmd 
+Input the Desired Values for Analysis
 
+User Input:
+</br>News Site to Analyze
 
-Cmd 창에 ```pip install``` 후 엔터
+Example URLs:
+* http://www.ansannews.co.kr/news/articleView.html?idxno=13510
+* https://n.news.naver.com/article/011/0004403177?ntype=RANKING
+* http://www.civicnews.com/news/articleView.html?idxno=28776
+* https://www.yna.co.kr/view/AKR20160524181900033
+* https://www.bbc.com/future/article/20220718-the-best-way-to-brush-your-teeth
 
-pip install 이 안 되는 경우, 해당 링크 참조 https://balabala.tistory.com/76 
-<br><br> ```pip install requests beautifulsoup4 selenium webdriver-manager openai pyinstaller```
-<br>Cmd에 해당 위 명령어 복사 실행
-
-Chatgpt_summarize_user_input.py 파일이 있는 폴더에서 해당 빨간 부분 클릭후, 경로 복사
-<br>Cd 경로, 엔터
-
-경로 바뀌었는지 한 번 더 확인 
-<br> ```pyinstaller --onefile chatgpt_summarize_user_input.py```
-<br>복사 후, 붙여넣기
-
-엄청난 양의 코드 끝에 “dist” 폴더에 chatgpt_summarize_user_input.exe 파일 생성
+### Thanks to LLM, news sites' language doens't matter
